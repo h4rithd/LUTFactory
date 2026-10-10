@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lutfactory-cli"
+version = "0.1.0"
+description = "Convert graded identity charts into camera monitoring and post-production 3D .cube LUTs"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "h4rithd"}]
+keywords = ["3d-lut", "sony", "davinci-resolve", "color-grading", "cube"]
+dependencies = ["numpy>=1.26", "tifffile>=2024.2", "rich>=13.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "build>=1"]
+
+[project.scripts]
+lutfactory = "lutfactory.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
